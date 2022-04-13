@@ -8,7 +8,7 @@ public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idmarca", nullable = false)
-    private Integer id;
+    private int id;
 
     @Column(name = "nombre", length = 45)
     private String nombre;
@@ -21,11 +21,11 @@ public class Marca {
         this.nombre = nombre;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
