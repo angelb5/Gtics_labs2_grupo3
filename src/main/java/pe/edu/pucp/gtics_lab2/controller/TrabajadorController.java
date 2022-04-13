@@ -66,9 +66,9 @@ public class TrabajadorController {
         try {
             trabajadorRepository.save(trabajador);
             if (tipo == 0) {
-                redA.addFlashAttribute("msg", "Trabajador agregado exitosamente");
+                redA.addFlashAttribute("crear", "Trabajador agregado exitosamente");
             } else {
-                redA.addFlashAttribute("msg", "Datos del Trabajador actualizados exitosamente");
+                redA.addFlashAttribute("editar", "Datos del Trabajador actualizados exitosamente");
             }
         } catch(Exception e){
             redA.addFlashAttribute("err", "Hubo un problema, inténtalo nuevamente");
@@ -84,7 +84,7 @@ public class TrabajadorController {
 
         if(existeTrabajador.isPresent()){
             trabajadorRepository.delete(existeTrabajador.get());
-            redA.addFlashAttribute("msg","Trabajador eliminado exitosamente");
+            redA.addFlashAttribute("borrar","Trabajador eliminado exitosamente");
         } else{
             redA.addFlashAttribute("err","Hubo un problema al eliminar al trabajador. Inténtelo nuevamente");
         }

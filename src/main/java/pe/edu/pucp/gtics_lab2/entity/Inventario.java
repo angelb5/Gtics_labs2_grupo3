@@ -15,18 +15,18 @@ public class Inventario {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idtipo", nullable = false)
-    private Tipo idtipo;
+    private Tipo tipo;
 
     @Column(name = "numeroserie", length = 45)
     private String numeroserie;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idsede", nullable = false)
-    private Sede idsede;
+    private Sede sede;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idmarca", nullable = false)
-    private Marca idmarca;
+    private Marca marca;
 
     @Column(name = "estado", length = 45)
     private String estado;
@@ -39,36 +39,12 @@ public class Inventario {
         this.estado = estado;
     }
 
-    public Marca getIdmarca() {
-        return idmarca;
-    }
-
-    public void setIdmarca(Marca idmarca) {
-        this.idmarca = idmarca;
-    }
-
-    public Sede getIdsede() {
-        return idsede;
-    }
-
-    public void setIdsede(Sede idsede) {
-        this.idsede = idsede;
-    }
-
     public String getNumeroserie() {
         return numeroserie;
     }
 
     public void setNumeroserie(String numeroserie) {
         this.numeroserie = numeroserie;
-    }
-
-    public Tipo getIdtipo() {
-        return idtipo;
-    }
-
-    public void setIdtipo(Tipo idtipo) {
-        this.idtipo = idtipo;
     }
 
     public String getNombre() {
@@ -85,5 +61,29 @@ public class Inventario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public Sede getSede() {
+        return sede;
+    }
+
+    public void setSede(Sede sede) {
+        this.sede = sede;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 }
