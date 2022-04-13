@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragmentos/cabecera.html :: cabecera('Editar Trabajador')">
+    </head>
+    <body>
+        <nav th:replace="fragmentos/navbar.html :: navbar('sedes')">
+        </nav>
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 border-bottom">Editar Trabajador</h1>
+                <div class="container-fluid">
+                    <form method="post" th:action="@{/trabajadores/guardar?tipo=1}"  th:object="${trabajador}">
+                        <div class="mb-3">
+                            <label for="dni" class="form-label">DNI del Trabajador</label>
+                            <input type="number" class="form-control" th:field="*{dni}">
+
+                            <label for="correo" class="form-label">Correo del Trabajador</label>
+                            <input type="email" class="form-control" th:field="*{correo}">
+
+                            <label for="nombres" class="form-label">Nombres del Trabajador</label>
+                            <input type="text" class="form-control" th:field="*{nombres}">
+
+                            <label for="apellidos" class="form-label">Apellidos del Trabajador</label>
+                            <input type="text" class="form-control" th:field="*{apellidos}">
+
+                            <label for="sede.id" class="form-label">Sede</label>
+                            <select th:field="*{sede.id}" class="form-select">
+                                <option th:each="sede : ${listaSedes}"
+                                        th:text="${sede.getNombreSede()}"
+                                        th:value="${sede.getId()}"></option>
+                            </select>
+                        </div>
+
+                        <a th:href="@{/trabajadores/lista}"  class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

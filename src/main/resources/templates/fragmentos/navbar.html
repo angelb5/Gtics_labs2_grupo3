@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/cabecera.html :: cabecera('navbar')">
+</head>
+<body>
+<nav th:fragment="navbar(pagina)" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">Bicicentro</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a th:class="nav-link" th:classappend="${pagina =='inventario'} ? 'active': ''"  aria-current="page" th:href="@{'/inventario/lista'}" >Inventario</a>
+                <a th:class="nav-link" th:classappend="${pagina =='marcas'}? 'active': ''"  aria-current="page" th:href="@{'/marcas/lista'}" >Marcas</a>
+                <a th:class="nav-link" th:classappend="${pagina =='tipos'}?'active':''" aria-current="page" th:href="@{'/tipos/lista'}">Tipos de equipo</a>
+                <a th:class="nav-link" th:classappend="${pagina =='sedes'}? 'active':''" aria-current="page" th:href="@{'/sedes/lista'}">Sedes</a>
+                <a th:class="nav-link" th:classappend="${pagina =='trabajadores'}? 'active':''" aria-current="page" th:href="@{'/trabajadores/lista'}">Trabajadores</a>
+            </div>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragmentos/cabecera.html :: cabecera('Agregar Sede')">
+    </head>
+    <body>
+        <nav th:replace="fragmentos/navbar.html :: navbar('sedes')">
+        </nav>
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 mb-3 border-bottom">Nueva Sede</h1>
+                <form method="post" th:action="@{'/sedes/guardar'}" class="mt-2">
+                    <div class="mb-3">
+                        <label for="nombreSede" class="form-label">Nombre de la sede</label>
+                        <input name="nombreSede" type="text" class="form-control" id="nombreSede">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección de la sede</label>
+                        <input name="direccion" type="text" class="form-control" id="direccion">
+                    </div>
+
+                    <a th:href="@{'/sedes/lista'}" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

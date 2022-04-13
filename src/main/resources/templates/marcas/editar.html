@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/cabecera.html :: cabecera('Editar Marca')">
+</head>
+<body>
+    <nav th:replace="fragmentos/navbar.html :: navbar('marcas')">
+    </nav>
+    <main>
+        <div class="container px-4 py-5">
+            <h1 class="pb-2 mb-3 border-bottom">Editar Marca</h1>
+            <form method="post" th:action="@{'/marcas/guardar'}" class="mt-2" th:object="${marca}">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre de la marca</label>
+                    <input name="nombre" type="text" class="form-control" id="nombre" th:field="*{nombre}">
+                </div>
+                <a th:href="@{'/marcas/lista'}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

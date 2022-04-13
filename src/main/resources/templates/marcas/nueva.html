@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/cabecera.html :: cabecera('Agregar Marca')">
+</head>
+<body>
+    <nav th:replace="fragmentos/navbar.html :: navbar('marcas')">
+    </nav>
+    <main>
+        <div class="container px-4 py-5">
+            <h1 class="pb-2 mb-3 border-bottom">Nueva Marca</h1>
+            <form method="post" th:action="@{'/marcas/guardar'}" class="mt-2">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre de la marca</label>
+                    <input name="nombre" type="text" class="form-control" id="nombre">
+                </div>
+                <a th:href="@{'/marcas/lista'}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

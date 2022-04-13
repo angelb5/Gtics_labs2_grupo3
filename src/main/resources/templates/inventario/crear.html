@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragmentos/cabecera.html :: cabecera('Agregar al Inventario')">
+    </head>
+    <body>
+        <nav th:replace="fragmentos/navbar.html :: navbar('inventario')">
+        </nav>
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 border-bottom">Agregar al Inventario</h1>
+                <div class="container-fluid">
+                    <form method="post" th:action="@{/inventario/guardar}">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre">
+
+                            <label for="numeroserie" class="form-label">Número de Serie</label>
+                            <input type="text" class="form-control" id="numeroserie" name="numeroserie">
+
+                            <label for="sede.id" class="form-label">Sede</label>
+                            <select id="sede.id" name="sede.id" class="form-select">
+                                <option th:each="sede : ${listaSedes}"
+                                        th:text="${sede.getNombreSede()}"
+                                        th:value="${sede.getId()}"></option>
+                            </select>
+
+                            <label for="marca.id" class="form-label">Marca</label>
+                            <select id="marca.id" name="marca.id" class="form-select">
+                                <option th:each="marca : ${listaMarcas}"
+                                        th:text="${marca.getNombre()}"
+                                        th:value="${marca.getId()}"></option>
+                            </select>
+
+                            <label for="tipo.id" class="form-label">Tipo de Equipo</label>
+                            <select id="tipo.id" name="tipo.id" class="form-select">
+                                <option th:each="tipo : ${listaTipos}"
+                                        th:text="${tipo.getNombre()}"
+                                        th:value="${tipo.getId()}"></option>
+                            </select>
+
+                            <label for="estado" class="form-label">Estado</label>
+                            <select id="estado" name="estado" class="form-select">
+                                <option value="Almacen">Almacén</option>
+                                <option value="Pedido">Pedido</option>
+                                <option value="Vendido">Vendido</option>
+                            </select>
+                        </div>
+
+                        <a th:href="@{/inventario/lista}"  class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
