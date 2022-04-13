@@ -9,9 +9,9 @@
         <main>
             <div class="container px-4 py-5">
                 <h1 class="pb-2 border-bottom">Lista de Trabajadores</h1>
-                <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
                 <div class="d-flex mt-3 mb-4">
                     <a class="btn btn-primary" th:href="@{'/trabajadores/crear'}">Agregar Trabajador</a>
+                    <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
                 </div>
                 <div th:if="${crear != null}" th:text="${crear}" class="alert alert-success" role="alert"></div>
                 <div th:if="${editar != null}" th:text="${editar}" class="alert alert-warning" role="alert"></div>
