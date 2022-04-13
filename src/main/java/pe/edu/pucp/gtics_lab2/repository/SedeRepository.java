@@ -9,5 +9,4 @@ import java.util.List;
 
 @Repository
 public interface SedeRepository extends JpaRepository<Sede, Integer> {
-    //@Query(nativeQuery = true,value="select ")
 }
