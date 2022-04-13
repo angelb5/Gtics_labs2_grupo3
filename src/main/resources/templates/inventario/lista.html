@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragmentos/cabecera.html :: cabecera('Lista de Inventario')">
+    </head>
+    <body>
+        <nav th:replace="fragmentos/navbar.html :: navbar('inventario')">
+        </nav>
+
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 border-bottom">Lista de Inventario</h1>
+                <div class="d-flex mt-3 mb-4">
+                    <a class="btn btn-primary" th:href="@{'/inventario/nuevo'}">Nueva marca</a>
+                    <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
+                </div>
+
+                <div th:if="${creada != null}" th:text="${creada}" class="alert alert-success" role="alert"></div>
+                <div th:if="${editada != null}" th:text="${editada}" class="alert alert-warning" role="alert"></div>
+                <div th:if="${borrada != null}" th:text="${borrada}" class="alert alert-danger" role="alert"></div>
+
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre de la inventario</th>
+                        <th>Numero de Serie</th>
+                        <th>Estado</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="inventario, info : ${inventarioList}">
+                        <td th:text="${info.index + 1}"></td>
+                        <td th:text="${inventario.nombre}"></td>
+                        <td th:text="${inventario.numeroserie}"></td>
+                        <td th:text="${inventario.estado}"></td>
+
+                        <td><a class="btn btn-primary" th:href="@{'/inventario/editar' + '?id=' + ${inventario.id}}">Editar</a>
+                        </td>
+                        <td><a class="btn btn-danger" th:href="@{'/inventario/borrar' + '?id=' + ${inventario.id}}">Borrar</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>

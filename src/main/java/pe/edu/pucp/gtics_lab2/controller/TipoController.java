@@ -47,7 +47,7 @@ public class TipoController {
     }
 
     @PostMapping("/guardar")
-    public String guardarMarca(Tipo tipo, RedirectAttributes attr){
+    public String guardarTipo(Tipo tipo, RedirectAttributes attr){
         if (tipo.getId() == 0) {
             attr.addFlashAttribute("creado", "Tipo creado exitosamente");
         } else {
@@ -58,7 +58,7 @@ public class TipoController {
     }
 
     @GetMapping("/borrar")
-    public String borrarMarca(@RequestParam("id") int id, RedirectAttributes attr){
+    public String borrarTipo(@RequestParam("id") int id, RedirectAttributes attr){
         Optional<Tipo> optionalTipo = tipoRepository.findById(id);
         if(optionalTipo.isPresent()){
             tipoRepository.deleteById(id);
