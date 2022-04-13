@@ -75,12 +75,13 @@ public class InventarioController {
     public String guardarTrabajador(Inventario inventario, RedirectAttributes redA){
 
         try {
-            inventarioRepository.save(inventario);
+            System.out.println("ID Inventario: "+inventario.getId());
             if (inventario.getId() == 0) {
                 redA.addFlashAttribute("crear", "Agregado al inventario exitosamente");
             } else {
                 redA.addFlashAttribute("editar", "Inventario actualizado exitosamente");
             }
+            inventarioRepository.save(inventario);
         } catch(Exception e){
             redA.addFlashAttribute("err", "Hubo un problema, inténtalo nuevamente");
             System.out.println(e.getMessage());
@@ -94,7 +95,7 @@ public class InventarioController {
         Optional<Inventario> optionalInventario = inventarioRepository.findById(id);
         if(optionalInventario.isPresent()){
             inventarioRepository.deleteById(id);
-            reddA.addFlashAttribute("borrada","Inventario borrado exitosamente");
+            reddA.addFlashAttribute("borrar","Inventario borrado exitosamente");
         }
         return "redirect:/inventario/lista";
     }

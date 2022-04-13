@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragmentos/cabecera.html :: cabecera('Lista de Sedes')">
+    <head th:replace="fragmentos/cabecera.html :: cabecera('Lista de Trabajadores')">
     </head>
     <body>
         <nav th:replace="fragmentos/navbar.html :: navbar('trabajadores')">
@@ -9,6 +9,7 @@
         <main>
             <div class="container px-4 py-5">
                 <h1 class="pb-2 border-bottom">Lista de Trabajadores</h1>
+                <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
                 <div class="d-flex mt-3 mb-4">
                     <a class="btn btn-primary" th:href="@{'/trabajadores/crear'}">Agregar Trabajador</a>
                 </div>
