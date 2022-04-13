@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/cabecera.html :: cabecera('Lista Marcas')">
+</head>
+<body>
+    <nav th:replace="fragmentos/navbar.html :: navbar('marcas')">
+    </nav>
+
+    <main>
+        <div class="container px-4 py-5">
+            <h1 class="pb-2 border-bottom">Lista de marcas</h1>
+            <div class="d-flex mt-3 mb-4">
+                <a class="btn btn-primary" th:href="@{'/marcas/nuevo'}">Nueva marca</a>
+                <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
+            </div>
+            <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre de la marca</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each="marca, info : ${marcaList}">
+                    <td th:text="${info.index + 1}"></td>
+                    <td th:text="${marca.nombre}"></td>
+                    <td><a class="btn btn-primary" th:href="@{'/shipper/edit' + '?id=' + ${marca.id}}">Editar</a>
+                    </td>
+                    <td><a class="btn btn-danger" th:href="@{'/shipper/delete' + '?id=' + ${marca.id}}">Borrar</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
