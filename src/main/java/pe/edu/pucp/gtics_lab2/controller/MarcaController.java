@@ -46,7 +46,7 @@ public class MarcaController {
     }
 
     @PostMapping("/guardar")
-    public String guardarDistribuidora(Marca marca, RedirectAttributes attr){
+    public String guardarMarca(Marca marca, RedirectAttributes attr){
         if (marca.getId() == 0) {
             attr.addFlashAttribute("creada", "Marca creada exitosamente");
         } else {
@@ -57,7 +57,7 @@ public class MarcaController {
     }
 
     @GetMapping("/borrar")
-    public String borrarDistribuidora(@RequestParam("id") int id, RedirectAttributes attr){
+    public String borrarMarca(@RequestParam("id") int id, RedirectAttributes attr){
         Optional<Marca> optionalMarca = marcaRepository.findById(id);
         if(optionalMarca.isPresent()){
             marcaRepository.deleteById(id);

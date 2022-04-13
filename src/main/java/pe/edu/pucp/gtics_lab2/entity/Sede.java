@@ -8,7 +8,7 @@ public class Sede {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idsede", nullable = false)
-    private Integer id;
+    private int id;
 
     @Column(name = "nombreSede", length = 45)
     private String nombreSede;
@@ -32,11 +32,11 @@ public class Sede {
         this.nombreSede = nombreSede;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
