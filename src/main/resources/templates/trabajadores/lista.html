@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragmentos/cabecera.html :: cabecera('Lista de Sedes')">
+    </head>
+    <body>
+        <nav th:replace="fragmentos/navbar.html :: navbar('trabajadores')">
+        </nav>
+
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 border-bottom">Lista de Trabajadores</h1>
+                <div class="d-flex mt-3 mb-4">
+                    <a class="btn btn-primary" th:href="@{'/trabajadores/crear'}">Agregar Trabajador</a>
+                </div>
+                <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+                <div th:if="${err != null}" th:text="${err}" class="alert alert-danger" role="alert"></div>
+
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>DNI del Trabajador</th>
+                        <th>Correo del Trabajador</th>
+                        <th>Nombres del Trabajador</th>
+                        <th>Apellidos del Trabajador</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="trabajador, info : ${listaTrabajadores}">
+                        <td th:text="${info.size}"></td>
+                        <td th:text="${trabajador.getDni()}"></td>
+                        <td th:text="${trabajador.getCorreo()}"></td>
+                        <td th:text="${trabajador.getNombres()}"></td>
+                        <td th:text="${trabajador.getApellidos()}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/trabajadores/editar' + '?id=' + ${trabajador.getDni()}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/trabajadores/borrar' + '?id=' + ${trabajador.getDni()}}">Borrar</a></td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>
