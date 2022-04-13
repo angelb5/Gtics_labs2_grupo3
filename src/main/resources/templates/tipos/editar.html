@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/cabecera.html :: cabecera('Agregar Tipo')">
+</head>
+<body>
+    <nav th:replace="fragmentos/navbar.html :: navbar('tipos')">
+    </nav>
+    <main>
+        <div class="container px-4 py-5">
+            <h1 class="pb-2 mb-3 border-bottom">Editar Tipo</h1>
+            <form method="post" th:action="@{'/tipos/guardar'}" class="mt-2" th:object="${tipo}">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del tipo</label>
+                    <input name="nombre" type="text" class="form-control" id="nombre" th:field="*{nombre}">
+                </div>
+                <a th:href="@{'/tipos/lista'}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

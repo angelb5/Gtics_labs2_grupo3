@@ -13,7 +13,7 @@
             <div class="navbar-nav">
                 <a th:class="nav-link" th:classappend="${pagina =='inventario'} ? 'active': ''"  aria-current="page" th:href="@{'/inventario/lista'}" >Inventario</a>
                 <a th:class="nav-link" th:classappend="${pagina =='marcas'}? 'active': ''"  aria-current="page" th:href="@{'/marcas/lista'}" >Marcas</a>
-                <a th:class="nav-link" th:classappend="${pagina =='equipos'}?'active':''" aria-current="page" th:href="@{'/equipos/lista'}">Tipos de equipo</a>
+                <a th:class="nav-link" th:classappend="${pagina =='tipos'}?'active':''" aria-current="page" th:href="@{'/tipos/lista'}">Tipos de equipo</a>
                 <a th:class="nav-link" th:classappend="${pagina =='sedes'}? 'active':''" aria-current="page" th:href="@{'/sedes/lista'}">Sedes</a>
                 <a th:class="nav-link" th:classappend="${pagina =='trabajadores'}? 'active':''" aria-current="page" th:href="@{'/trabajadores/lista'}">Trabajadores</a>
             </div>
